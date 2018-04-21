@@ -1,0 +1,14 @@
+E:\ItStep\WindowsFormsExam\WindowsFormsExam\bin\Debug\WindowsFormsExam.exe.config
+E:\ItStep\WindowsFormsExam\WindowsFormsExam\bin\Debug\WindowsFormsExam.exe
+E:\ItStep\WindowsFormsExam\WindowsFormsExam\bin\Debug\WindowsFormsExam.pdb
+E:\ItStep\WindowsFormsExam\WindowsFormsExam\obj\Debug\WindowsFormsExam.csprojResolveAssemblyReference.cache
+E:\ItStep\WindowsFormsExam\WindowsFormsExam\obj\Debug\WindowsFormsExam.Form1.resources
+E:\ItStep\WindowsFormsExam\WindowsFormsExam\obj\Debug\WindowsFormsExam.Properties.Resources.resources
+E:\ItStep\WindowsFormsExam\WindowsFormsExam\obj\Debug\WindowsFormsExam.csproj.GenerateResource.Cache
+E:\ItStep\WindowsFormsExam\WindowsFormsExam\obj\Debug\WindowsFormsExam.exe
+E:\ItStep\WindowsFormsExam\WindowsFormsExam\obj\Debug\WindowsFormsExam.pdb
+E:\ItStep\WindowsFormsExam\WindowsFormsExam\obj\Debug\WindowsFormsExam.aboutProgram.resources
+E:\ItStep\WindowsFormsExam\WindowsFormsExam\obj\Debug\WindowsFormsExam.Child.resources
+E:\ItStep\WindowsFormsExam\WindowsFormsExam\obj\Debug\WindowsFormsExam.Form1.en.resources
+E:\ItStep\WindowsFormsExam\WindowsFormsExam\bin\Debug\en\WindowsFormsExam.resources.dll
+E:\ItStep\WindowsFormsExam\WindowsFormsExam\obj\Debug\en\WindowsFormsExam.resources.dll

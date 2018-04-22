@@ -12,3 +12,17 @@ E:\ItStep\WindowsFormsExam\WindowsFormsExam\obj\Debug\WindowsFormsExam.Child.res
 E:\ItStep\WindowsFormsExam\WindowsFormsExam\obj\Debug\WindowsFormsExam.Form1.en.resources
 E:\ItStep\WindowsFormsExam\WindowsFormsExam\bin\Debug\en\WindowsFormsExam.resources.dll
 E:\ItStep\WindowsFormsExam\WindowsFormsExam\obj\Debug\en\WindowsFormsExam.resources.dll
+C:\Users\MAK\Desktop\WindowsFormsExam-master\WindowsFormsExam\WindowsFormsExam\bin\Debug\WindowsFormsExam.exe.config
+C:\Users\MAK\Desktop\WindowsFormsExam-master\WindowsFormsExam\WindowsFormsExam\bin\Debug\WindowsFormsExam.exe
+C:\Users\MAK\Desktop\WindowsFormsExam-master\WindowsFormsExam\WindowsFormsExam\bin\Debug\WindowsFormsExam.pdb
+C:\Users\MAK\Desktop\WindowsFormsExam-master\WindowsFormsExam\WindowsFormsExam\bin\Debug\en\WindowsFormsExam.resources.dll
+C:\Users\MAK\Desktop\WindowsFormsExam-master\WindowsFormsExam\WindowsFormsExam\obj\Debug\WindowsFormsExam.csprojResolveAssemblyReference.cache
+C:\Users\MAK\Desktop\WindowsFormsExam-master\WindowsFormsExam\WindowsFormsExam\obj\Debug\WindowsFormsExam.aboutProgram.resources
+C:\Users\MAK\Desktop\WindowsFormsExam-master\WindowsFormsExam\WindowsFormsExam\obj\Debug\WindowsFormsExam.Child.resources
+C:\Users\MAK\Desktop\WindowsFormsExam-master\WindowsFormsExam\WindowsFormsExam\obj\Debug\WindowsFormsExam.Form1.resources
+C:\Users\MAK\Desktop\WindowsFormsExam-master\WindowsFormsExam\WindowsFormsExam\obj\Debug\WindowsFormsExam.Properties.Resources.resources
+C:\Users\MAK\Desktop\WindowsFormsExam-master\WindowsFormsExam\WindowsFormsExam\obj\Debug\WindowsFormsExam.Form1.en.resources
+C:\Users\MAK\Desktop\WindowsFormsExam-master\WindowsFormsExam\WindowsFormsExam\obj\Debug\WindowsFormsExam.csproj.GenerateResource.Cache
+C:\Users\MAK\Desktop\WindowsFormsExam-master\WindowsFormsExam\WindowsFormsExam\obj\Debug\en\WindowsFormsExam.resources.dll
+C:\Users\MAK\Desktop\WindowsFormsExam-master\WindowsFormsExam\WindowsFormsExam\obj\Debug\WindowsFormsExam.exe
+C:\Users\MAK\Desktop\WindowsFormsExam-master\WindowsFormsExam\WindowsFormsExam\obj\Debug\WindowsFormsExam.pdb

@@ -18,6 +18,7 @@ namespace WindowsFormsExam
     {
         public Child child;
         int flafColor = 0;
+        int flagLeng = 0;
         string[] Words = { "public ", "class ", "partial ", "string ", "int ", "boole ", "get ", "set ", "new ", "object ", "namespace ",
                             "private ", "void ", "double ", "true;", "false;", "for ", "if ", "foreach ", "in ", "var ", "as ", "is ", "else", "this ", "this;"};
         public string path { get; set; } = "";
@@ -29,6 +30,8 @@ namespace WindowsFormsExam
 
             openToolStripMenuItem.Click += OpenFileToolStripMenuItem_Click;
             openToolStripButton.Click += OpenFileToolStripMenuItem_Click;
+            openToolStripMenuItemEn.Click += OpenFileToolStripMenuItem_Click;
+            openToolStripButtonEn.Click += OpenFileToolStripMenuItem_Click;
 
             newToolStripMenuItem.Click += NewFileToolStripMenuItem_Click;
             newToolStripButton.Click += NewFileToolStripMenuItem_Click;
@@ -95,10 +98,14 @@ namespace WindowsFormsExam
             textBoxReplace.Enter += TextBoxSearch_Enter;
             textBoxReplace.Leave += TextBoxSearch_Leave;
             textBoxReplace.TextChanged += TextBoxSearch_TextChanged;
-
+            //ru
             buttonSerch.Click += ButtonSerch_Click;
             buttonReplace.Click += ButtonReplace_Click;
+            //en
+            btnFindSerchGroopEn.Click += ButtonSerchEn_Click;
+            btnReplSerchGroopEn.Click += ButtonReplaceEn_Click;
 
+            labelserchGroopEn.Click += LabelreplaceEn_Click;
             labelreplace.Click += Labelreplace_Click;
 
             //цвет интерфейса
@@ -113,43 +120,36 @@ namespace WindowsFormsExam
             unCommentToolStripButton.Click += UnCommentToolStripButton_Click;
 
             //язык
-            usToolStripMenuItem.Click += UsToolStripMenuItem_Click;
+            enToolStripMenuItem.Click += UsToolStripMenuItem_Click;
             rusToolStripMenuItem.Click += RusToolStripMenuItem_Click;
-        }
-        private static void ChangeLanguage()
-        {
-            foreach (Form frm in Application.OpenForms)
-            {
-                LocalizeForm(frm);
-            }
-        }
-
-        private static void LocalizeForm(Form frm)
-        {
-            var manager = new ComponentResourceManager(frm.GetType());
-            manager.ApplyResources(frm, "$this");
-            ApplyResources(manager, frm.Controls);
-        }
-
-        private static void ApplyResources(ComponentResourceManager manager, Control.ControlCollection ctls)
-        {
-            foreach (Control ctl in ctls)
-            {
-                manager.ApplyResources(ctl, ctl.Name);
-                ApplyResources(manager, ctl.Controls);
-            }
+            enToolStripMenuItemEn.Click += UsToolStripMenuItem_Click;
+            rusToolStripMenuItemEn.Click += RusToolStripMenuItem_Click;
         }
         private void RusToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Properties.Settings.Default.Language = "ru-RU";
-            Thread.CurrentThread.CurrentUICulture = new CultureInfo("ru-RU");
-            ChangeLanguage();
+            menuStrip.Visible = true;
+            menuStripEn.Visible = false;
+            toolStripEn.Visible = false;
+            toolStripTop.Visible = true;
+            serchGroopEn.Visible = false;
+            Text = $"Блокнот  {path}";
+            flagLeng = 0;
         }
         private void UsToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Properties.Settings.Default.Language = "en-US";
-            Thread.CurrentThread.CurrentUICulture = new CultureInfo("en-US");
-            ChangeLanguage();
+            menuStrip.Visible = false;
+            menuStripEn.Visible = true;
+            //menuStripEn.Dock = DockStyle.Top;
+            toolStripEn.Visible = true;
+            //menuStripEn.Top = toolStripEn.Bottom+20;
+            toolStripEn.Location = new Point(menuStripEn.Left, menuStripEn.Bottom);
+            toolStripTop.Visible = false;
+            //toolStripEn.Dock = DockStyle.Top;
+            Text = $"Notebook  {path}";
+            serchGroopEn.Visible = true;
+            flagLeng = 1;
+
+
         }
 
         private void UnCommentToolStripButton_Click(object sender, EventArgs e)
@@ -280,6 +280,20 @@ namespace WindowsFormsExam
             }
             child.ChildRichTextBox.ForeColor = (flafColor == 0) ? Color.Black : Color.White;
         }
+        private void ButtonReplaceEn_Click(object sender, EventArgs e)
+        {
+            if (!child.ChildRichTextBox.Text.Contains(searchSerchGroopEn.Text))
+            {
+                MessageBox.Show($"Не удается найти {searchSerchGroopEn.Text}", "", MessageBoxButtons.OK);
+                return;
+            }
+            child.ChildRichTextBox.Text = child.ChildRichTextBox.Text.Replace(searchSerchGroopEn.Text, $"{ReplSerchGroopEn.Text} ");
+            if (child.childPath.EndsWith("cs"))
+            {
+                ColorSelector(child.ChildRichTextBox, Words, Color.Blue);
+            }
+            child.ChildRichTextBox.ForeColor = (flafColor == 0) ? Color.Black : Color.White;
+        }
         private void ButtonSerch_Click(object sender, EventArgs e)
         {
 
@@ -292,6 +306,19 @@ namespace WindowsFormsExam
             if ((child.ChildRichTextBox.Find(textBoxSearch.Text, start, RichTextBoxFinds.None)) == -1)
             {
                 MessageBox.Show($"Не удается найти {textBoxSearch.Text}", "", MessageBoxButtons.OK);
+            }
+        }
+        private void ButtonSerchEn_Click(object sender, EventArgs e)
+        {
+            int start = (child.ChildRichTextBox.Text.Length > child.ChildRichTextBox.SelectionStart ? child.ChildRichTextBox.SelectionStart + 1 : 0);
+            if (searchSerchGroopEn.Text.Length > 0 && start >= 0)
+            {
+                child.ChildRichTextBox.Find(searchSerchGroopEn.Text, start, RichTextBoxFinds.None);
+                child.ChildRichTextBox.Focus();
+            }
+            if ((child.ChildRichTextBox.Find(searchSerchGroopEn.Text, start, RichTextBoxFinds.None)) == -1)
+            {
+                MessageBox.Show($"Can not find {searchSerchGroopEn.Text}", "", MessageBoxButtons.OK);
             }
         }
         private void Labelreplace_Click(object sender, EventArgs e)
@@ -307,6 +334,21 @@ namespace WindowsFormsExam
                 buttonReplace.Visible = false;
                 textBoxReplace.Visible = false;
                 labelreplace.Text = "+";
+            }
+        }
+        private void LabelreplaceEn_Click(object sender, EventArgs e)
+        {
+            if (btnReplSerchGroopEn.Visible == false)
+            {
+                btnReplSerchGroopEn.Visible = true;
+                ReplSerchGroopEn.Visible = true;
+                labelserchGroopEn.Text = "-";
+            }
+            else
+            {
+                btnReplSerchGroopEn.Visible = false;
+                ReplSerchGroopEn.Visible = false;
+                labelserchGroopEn.Text = "+";
             }
         }
 
@@ -418,7 +460,34 @@ namespace WindowsFormsExam
                 labelreplace.Enabled = true;
                 buttonReplace.Enabled = true;
                 buttonSerch.Enabled = true;
-
+                saveToolStripButton.Enabled = true;
+                undoToolStripButton.Enabled = true;
+                redoToolStripButton.Enabled = true;
+                cutToolStripButton.Enabled = true;
+                pasteToolStripButton.Enabled = true;
+                dateToolStripButton.Enabled = true;
+                copyToolStripButton.Enabled = true;
+                closeToolStripButton.Enabled = true;
+                colorToolStripButton.Enabled = true;
+                backColorToolStripButton.Enabled = true;
+                sintacsisToolStripMenuItem.Enabled = true;
+                unCommentToolStripButton.Enabled = true;
+                comentToolStripButton.Enabled = true;
+                //en
+                statusBarToolStripMenuItemEn.Enabled = true;
+                timeToolStripMenuItemEn.Enabled = true;
+                selectAllToolStripMenuItemEn.Enabled = true;
+                pasteToolStripMenuItemEn.Enabled = true;
+                backToolStripMenuItemEn.Enabled = true;
+                fontToolStripMenuItemEn.Enabled = true;
+                saveToolStripMenuItemEn.Enabled = true;
+                saveAsToolStripMenuItemEn.Enabled = true;
+                //tabsToolStripMenuItemEn.Visible = true;
+                //textBoxSearchEn.Enabled = true;
+                textBoxReplace.Enabled = true;
+                labelreplace.Enabled = true;
+                buttonReplace.Enabled = true;
+                buttonSerch.Enabled = true;
                 saveToolStripButton.Enabled = true;
                 undoToolStripButton.Enabled = true;
                 redoToolStripButton.Enabled = true;
@@ -434,14 +503,14 @@ namespace WindowsFormsExam
                 comentToolStripButton.Enabled = true;
                 child = ActiveMdiChild as Child;
                 path = child.Text;
-                Text = $"Блокнот - {path}";
+                Text = (flagLeng == 0)?$"Блокнот  {path}": $"Notebook  {path}";
                 child.ChildRichTextBox.TextChanged += RichTextBox_TextChanged;//событие на изменение текста в активной форме
                 child.ChildRichTextBox.SelectionChanged += RichTextBox_SelectionChanged;//событие на выделение текста в активной форме
                 child.ChildRichTextBox.ContextMenuStrip = contextMenuStrip;//подключаем контекстное меню из первой формы к второй форме
             }
             else
             {
-                Text = $"Блокнот";
+                Text = (flagLeng == 0) ? $"Блокнот  {path}" : $"Notebook  {path}";
                 path = "";
                 statusBarToolStripMenuItem.Enabled = false;
                 timeToolStripMenuItem.Enabled = false;
@@ -651,7 +720,7 @@ namespace WindowsFormsExam
                 child.MdiParent = this;
                 child.Show();
                 child.childPath = path = dialog.FileName;
-                Text = $"Блокнот - {path}";
+                Text = $"Блокнот  {path}";
                 ColorIntrfese();
             }
         }
@@ -668,7 +737,7 @@ namespace WindowsFormsExam
                 child.Show();
                 child.childPath = path = dialog.FileName;
                 child.Text = path;
-                Text = $"Блокнот - {path}";
+                Text = $"Блокнот  {path}";
                 if (path.EndsWith("rtf"))
                 {
                     child.ChildRichTextBox.LoadFile(path, RichTextBoxStreamType.RichText);
